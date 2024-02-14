@@ -38,17 +38,12 @@ class Fillng_form:
     def getting_values_for_other_fields(self):
         other_fields = ["first-name", "last-name", "address", "e-mail", "phone", "city", "country", "job-position",
                         "company"]
+        field_values = []
+
         for field in other_fields:
             input_field_full = self.driver.find_element('xpath', f'//div[@id="{field}"]')
-            return input_field_full.get_attribute('class')
+            field_values.append(input_field_full.get_attribute('class'))
 
-        def get_value_for_field(self, field):
-            input_field_full = self.driver.find_element('xpath', f'//div[@id="{field}"]')
-            return input_field_full.get_attribute('class')
+        return field_values
 
-        def get_values_for_fields(self, fields):
-            values_dict = {}
-            for field in fields:
-                input_field_full = self.driver.find_element('xpath', f'//div[@id="{field}"]')
-                values_dict[field] = input_field_full.get_attribute('class')
-            return values_dict
+
